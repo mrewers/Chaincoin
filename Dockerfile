@@ -24,7 +24,10 @@ RUN sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 RUN git clone https://github.com/chaincoin/chaincoin.git
 
 #Compile the masternode
-RUN cd chaincoin && ./autogen.sh && ./configure -without-gui && make
+RUN cd chaincoin
+RUN ./autogen.sh
+RUN ./configure -without-gui
+RUN make
 RUN sudo make install
 
 RUN mkdir ~/.chaincoin/
