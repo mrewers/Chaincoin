@@ -1,0 +1,30 @@
+FROM ubuntu:14.04
+
+WORKDIR chaincoin/src/
+
+#Install dependencies
+RUN sudo apt-get update
+RUN sudo apt-get install -y automake
+RUN sudo apt-get install -y libdb++-dev
+RUN sudo apt-get install -y build-essential libtool autotools-dev
+RUN sudo apt-get install -y autoconf pkg-config libssl-dev
+RUN sudo apt-get install -y libboost-all-dev
+RUN sudo apt-get install -y libminiupnpc-dev
+RUN sudo apt-get install -y git
+RUN sudo apt-get install -y software-properties-common
+RUN sudo apt-get install -y python-software-properties
+RUN sudo apt-get install -y g++
+
+#Download and compile the Berkely DB v4.8 database
+RUN sudo add-apt-repository ppa:bitcoin/bitcoin -y
+RUN sudo apt-get update
+RUN sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+
+#Download the Chaincoin sourcecode
+RUN git clone https://github.com/chaincoin/chaincoin.git
+
+#Compile the masternode
+RUN cd chaincoin && ./autogen.sh && ./configure -without-gui && make
+RUN sudo make install
+
+RUN mkdir ~/.chaincoin/
