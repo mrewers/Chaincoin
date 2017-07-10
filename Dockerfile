@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-WORKDIR chaincoin/src/
+WORKDIR chain/src/
 
 #Install dependencies
 RUN sudo apt-get update
@@ -24,7 +24,7 @@ RUN sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 RUN git clone https://github.com/chaincoin/chaincoin.git
 
 #Compile the masternode
-RUN cd ~/chaincoin/
+RUN cd chaincoin/
 RUN ./autogen.sh
 RUN ./configure -without-gui
 RUN make
