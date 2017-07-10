@@ -14,6 +14,7 @@ RUN sudo apt-get install -y git
 RUN sudo apt-get install -y software-properties-common
 RUN sudo apt-get install -y python-software-properties
 RUN sudo apt-get install -y g++
+RUN sudo apt-get install bsdmainutils
 
 #Download and compile the Berkely DB v4.8 database
 RUN sudo add-apt-repository ppa:bitcoin/bitcoin -y
