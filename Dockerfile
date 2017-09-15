@@ -10,6 +10,7 @@ RUN sudo apt-get install -y build-essential libtool autotools-dev
 RUN sudo apt-get install -y autoconf pkg-config libssl-dev
 RUN sudo apt-get install -y libboost-all-dev
 RUN sudo apt-get install -y libminiupnpc-dev
+RUN sudo apt-get install -y libevent-dev
 RUN sudo apt-get install -y git
 RUN sudo apt-get install -y software-properties-common
 RUN sudo apt-get install -y python-software-properties
